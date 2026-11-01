@@ -1,75 +1,187 @@
-# React + TypeScript + Vite
+# User Management Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive User Management Dashboard built using **React, TypeScript and Vite**. This project was developed as part of a Frontend Intern Assessment.
 
-Currently, two official plugins are available:
+The application fetches user information from the JSONPlaceholder API and provides an interactive interface to search, sort, filter and manage users.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**GitHub Repository:** https://github.com/sourav021205/user-management-dashboard
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **User Listing:** Displays users in responsive cards.
+- **Search:** Search users by name, username and email.
+- **Debounced Search:** Uses a 400 ms debounce delay.
+- **Sorting:** Sort by name, username and email in ascending or descending order.
+- **Filtering:** Filter users by city and company.
+- **User Details:** View complete user, address and company information.
+- **Pagination:** Displays five users per page.
+- **Favorites:** Add or remove favorite users with localStorage persistence.
+- **Dark Mode:** Switch between light and dark themes.
+- **CSV Export:** Export filtered users as a CSV file.
+- **Loading and Error Handling:** Displays loading indicators, error messages and retry options.
+- **Responsive Design:** Supports desktop, tablet and mobile screens.
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React.js
+- TypeScript
+- Vite
+- React Router
+- Fetch API
+- Material UI
+- CSS
+- Jest
+- React Testing Library
+- ESLint
+- Prettier
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## API Used
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+JSONPlaceholder Users API:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+https://jsonplaceholder.typicode.com/users
 
+The application retrieves user information from this API.
+
+## Project Structure
+
+```text
+src/
+├── api/
+│   └── usersApi.ts
+├── components/
+│   ├── Header.tsx
+│   ├── Footer.tsx
+│   ├── UserCard.tsx
+│   ├── SearchBar.tsx
+│   ├── FilterBar.tsx
+│   ├── SortControls.tsx
+│   ├── Pagination.tsx
+│   ├── LoadingState.tsx
+│   └── ErrorState.tsx
+├── pages/
+│   ├── UserListPage.tsx
+│   └── UserDetailPage.tsx
+├── hooks/
+│   └── useDebounce.ts
+├── services/
+│   └── favoritesService.ts
+├── types/
+│   └── user.ts
+├── utils/
+│   ├── filterUsers.ts
+│   ├── sortUsers.ts
+│   ├── paginateUsers.ts
+│   └── exportCsv.ts
+├── routes/
+│   └── AppRoutes.tsx
+└── tests/
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+## Installation and Setup
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 1. Clone the repository
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+git clone https://github.com/sourav021205/user-management-dashboard.git
 ```
+
+### 2. Navigate to the project directory
+
+```bash
+cd user-management-dashboard
+```
+
+### 3. Install dependencies
+
+```bash
+npm install
+```
+
+### 4. Start the development server
+
+```bash
+npm run dev
+```
+
+Open the local URL displayed in your terminal.
+
+## Testing
+
+Run all unit tests:
+
+```bash
+npm test
+```
+
+Generate the test coverage report:
+
+```bash
+npm run test:coverage
+```
+
+The latest recorded test results:
+
+- Test Suites: 12 passed
+- Tests: 52 passed
+- Statement Coverage: 89.79%
+- Branch Coverage: 88.67%
+- Function Coverage: 83.54%
+- Line Coverage: 89.79%
+
+## Code Quality
+
+Run ESLint:
+
+```bash
+npm run lint
+```
+
+Format the source code:
+
+```bash
+npm run format
+```
+
+## Production Build
+
+Create a production build:
+
+```bash
+npm run build
+```
+
+Preview the production build:
+
+```bash
+npm run preview
+```
+
+## Performance Optimizations
+
+The application uses:
+
+- React.memo for component memoization.
+- useMemo for optimizing calculated data.
+- useCallback for memoizing callback functions.
+- Debounced search to reduce unnecessary filtering.
+- React.lazy and Suspense for lazy loading the User Detail Page.
+
+## Assumptions
+
+- JSONPlaceholder is the data source.
+- The application uses client-side pagination.
+- Five users are displayed per page.
+- Search is case insensitive.
+- Favorites and theme preferences are stored in localStorage.
+- CSV export uses the currently filtered and sorted user data.
+
+## Screenshots
+
+Project screenshots can be added here to demonstrate the dashboard, search, filters, user details and dark mode.
+
+## Author
+
+Developed by **Sourav**
+
+GitHub: https://github.com/sourav021205
