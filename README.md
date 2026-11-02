@@ -176,9 +176,37 @@ The application uses:
 - Favorites and theme preferences are stored in localStorage.
 - CSV export uses the currently filtered and sorted user data.
 
+
 ## Screenshots
 
-Project screenshots can be added here to demonstrate the dashboard, search, filters, user details and dark mode.
+### 1. Main Dashboard
+
+![Dashboard](./screenshots/dashboard-desktop.png)
+
+### 2. Search Functionality
+
+![Search Results](./screenshots/search-results.png)
+
+### 3. Filtering and Sorting
+
+![Filters and Sorting](./screenshots/filters-sorting.png)
+
+### 4. User Detail Page
+
+![User Details](./screenshots/user-details.png)
+
+### 5. Favorites
+
+![Favorites](./screenshots/favorites.png)
+
+### 6. Dark Mode
+
+![Dark Mode](./screenshots/dark-mode.png)
+
+### 7. Mobile Responsive View
+
+![Mobile View](./screenshots/mobile-view.png)
+
 
 ## Author
 
